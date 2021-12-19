@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .header {
+  padding: 30px;
+  text-align: center;
+  background: #25242b;
+  color: white;
+  font-size: 20px;
+}
+.container {
+  border: 2px solid #ccc;
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 16px;
+  margin: 16px 0
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container span {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+@media (max-width: 500px) {
+  .container {
+      text-align: center;
+  }
+  .container img {
+      margin: auto;
+      float: none;
+      display: block;
+  }
+}
+</style>
+</head>
+<body>
+    <div class="header">
+        <h1>Doubts Section</h1>
+        <p>Post your Doubts over here</p>
+      </div>
+
+<div class="container">
+  <img src="person1.jpg" alt="Avatar" style="width:90px">
+  <p><span>Amitesh</span> First year under grad at SOICT</p>
+  <p>HI just posting this for testing....</p>
+</div>
+
+<div class="container">
+  <img src="person2.jpg" alt="Avatar" style="width:90px">
+  <p><span>Deeksha  </span> First year under grad at SOICT</p>
+  <p>Posting this for testing aswell</p></div>
+
+  <div class="container">
+    <img src="person3.jpg" alt="Avatar" style="width:90px">
+    <p><span>Khushi</span> First year under grad at SOICT</p>
+    <p>Posting this for testing aswell</p>
+  </div>
+</div>
+
+</body>
+</html>

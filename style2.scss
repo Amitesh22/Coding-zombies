@@ -1,0 +1,199 @@
+.header {
+  padding: 30px;
+  text-align: center;
+  background: #7b1abc;
+  color: white;
+  font-size: 20px;
+}
+@mixin object($width, $height, $bg) {
+	width: $width;
+	height: $height;
+	background: $bg;
+}
+
+@mixin transPos($top, $right, $bottom, $left, $transX, $transY) {
+	position: absolute;
+	top: $top;
+	left: $left;
+	right: $right;
+	bottom: $bottom;
+	transform: translate($transX, $transY);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+// Colors
+$blue: #2661f7;
+$green: #62ffd0;
+
+.wrapper {
+	display: grid;
+	grid-template-rows: 80px 1fr;
+}
+
+header {
+	@include object(100vw, 80px, #fff);
+	box-shadow: 0px 4px 30px rgba(#000, 0.2);
+	padding: 0 20px;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#brand {
+	display: flex;
+	#logo {
+		@include object(26px, 26px, $blue);
+		border-radius: 50%;
+		margin-right: 20px;
+	}
+	#wordmark {
+		@include object(150px, 26px, $green);
+		border-radius: 26px;
+	}
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	a {
+		display: block;
+		@include object(80px, 20px, null);
+		margin-left: 20px;
+		border-radius: 20px;
+		&:nth-child(odd) {
+			background: $blue;
+		}
+		&:nth-child(even) {
+			background: $green;
+		}
+	}
+	span {
+		@include object(40px, 40px, $blue);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		display: none;
+		.bar {
+			@include object(20px, 2px, #fff);
+			position: relative;
+			&:before,
+			&:after {
+				content: "";
+				position: absolute;
+				@include object(20px, 2px, #fff);
+			}
+			&:before {
+				bottom: 5px;
+			}
+			&:after {
+				top: 5px;
+			}
+		}
+	}
+}
+
+main {
+	@include object(100vw, null, null);
+	display: flex;
+}
+
+section {
+	@include object(25vw, 100vh, null);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&:nth-child(odd) {
+		background: $blue;
+	}
+	&:nth-child(even) {
+		background: $green;
+	}
+	.content {
+		transform: rotate(-90deg);
+		.heading {
+			@include object(240px, 20px, #fff);
+			border-radius: 20px;
+			margin-bottom: 20px;
+		}
+		.sub-heading {
+			@include object(120px, 20px, #fff);
+			border-radius: 20px;
+		}
+	}
+}
+
+@media screen and(min-width:981px) {
+	section {
+		transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
+		@for $i from 1 through 4 {
+			&:nth-child(#{$i}):hover {
+				width: 50vw;
+				.content {
+					transform: rotate(0deg);
+				}
+			}
+		}
+		.content {
+			transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
+		}
+	}
+}
+
+@media screen and (max-width: 980px) {
+	header {
+		position: fixed;
+	}
+	main {
+		display: unset;
+		margin-top: 80px;
+		section {
+			float: left;
+			@include object(50vw, calc(50vh - 40px), null);
+			border-bottom: 2px solid rgba(#000, 0.2);
+			.content {
+				transform: rotate(0deg);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	nav {
+		a {
+			display: none;
+		}
+		span {
+			display: flex;
+		}
+	}
+}
+
+
+@media screen and (max-width: 480px) {
+	main {
+		section {
+			width: 100vw;
+			border: none;
+		}
+	}
+}
+
+#youtube {
+	position: fixed;
+	right: 2vw;
+	bottom: 2vh;
+	font-size: 30px;
+	color: #fff;
+}

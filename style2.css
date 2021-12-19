@@ -1,0 +1,44 @@
+.header {
+  padding: 30px;
+  text-align: center;
+  background: #25242b;
+  color: white;
+  font-size: 20px;
+}
+.column {
+  float: left;
+  width: 20%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ /* Style buttons */
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+h1 {
+  color: green;
+}
+
+h2,
+h3 {
+  font-family: Impact;
+}
+
+body {
+  text-align: center;
+}
